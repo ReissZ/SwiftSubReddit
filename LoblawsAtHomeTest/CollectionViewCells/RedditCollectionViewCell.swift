@@ -18,9 +18,7 @@ class RedditCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var labelCenterConstraint: NSLayoutConstraint!
     
     public var isAnimated: Bool = false
-    
-   // private var source: [ImageURL] = []
-    
+        
     func updateCell(with reddit: RedditData) {
         print("cell123 \(isAnimated)")
         if isAnimated == false {
@@ -31,7 +29,6 @@ class RedditCollectionViewCell: UICollectionViewCell {
     
             if let imageURL = reddit.data.preview?.images.first?.source.url {
                 print("imageurl: \(imageURL)")
-                //redditImageView.loadImage(from: imageURL)
                 UIImage.loadFrom(url: imageURL) { image in
                     self.redditImageView.image = image
                 }

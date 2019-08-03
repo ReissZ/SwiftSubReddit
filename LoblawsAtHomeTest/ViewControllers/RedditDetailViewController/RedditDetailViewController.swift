@@ -28,7 +28,7 @@ class RedditDetailViewController: UIViewController {
         
         articleTextView.text = redditArticle?.data.selftext
 
-        self.navigationController?.navigationBar.topItem?.title = redditTitle?.data.title
+        self.navigationItem.title = redditTitle?.data.title
         
         let redditImageURLFromData = redditImage?.data.preview?.images.first?.source.url
         print("optional image: \(redditImageURLFromData)")
