@@ -17,21 +17,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RedditsCollectionViewCell" id="PtB-1A-AAr" userLabel="RedditCollectionViewCell" customClass="UserCollectionViewCell" customModule="EyesTest" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RedditCollectionViewCell" id="PtB-1A-AAr" userLabel="RedditCollectionViewCell" customClass="RedditCollectionViewCell" customModule="LoblawsAtHomeTest" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="234" height="259"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="234" height="259"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reiss Zurbyk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMg-Er-B7z">
-                        <rect key="frame" x="20" y="148" width="194" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Reiss Zurbyk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMg-Er-B7z">
+                        <rect key="frame" x="64" y="148" width="106" height="18"/>
                         <fontDescription key="fontDescription" name="Gibson-SemiBold" family="Gibson" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-Co-Wwx">
-                        <rect key="frame" x="62" y="12" width="128" height="128"/>
+                        <rect key="frame" x="53" y="12" width="128" height="128"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V1r-5d-yAc">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -56,20 +56,18 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="NNN-Co-Wwx" firstAttribute="centerX" secondItem="PtB-1A-AAr" secondAttribute="centerX" constant="9" id="0fb-tT-Yjk"/>
-                <constraint firstItem="NNN-Co-Wwx" firstAttribute="top" secondItem="PtB-1A-AAr" secondAttribute="top" constant="12" id="4PS-sc-EYc"/>
-                <constraint firstItem="XMg-Er-B7z" firstAttribute="top" secondItem="NNN-Co-Wwx" secondAttribute="bottom" constant="8" symbolic="YES" id="O19-eG-nc4"/>
-                <constraint firstItem="NNN-Co-Wwx" firstAttribute="centerX" secondItem="XMg-Er-B7z" secondAttribute="centerX" constant="9" id="g0f-sA-Zlb"/>
-                <constraint firstItem="XMg-Er-B7z" firstAttribute="centerX" secondItem="NNN-Co-Wwx" secondAttribute="centerX" constant="-9" id="p6a-wd-5td"/>
+                <constraint firstItem="NNN-Co-Wwx" firstAttribute="top" secondItem="PtB-1A-AAr" secondAttribute="top" constant="12" id="equ-nV-wWK"/>
+                <constraint firstItem="NNN-Co-Wwx" firstAttribute="centerX" secondItem="PtB-1A-AAr" secondAttribute="centerX" id="nsM-m4-ZBp"/>
+                <constraint firstItem="XMg-Er-B7z" firstAttribute="centerX" secondItem="PtB-1A-AAr" secondAttribute="centerX" id="tIW-0r-zBy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="4QT-sr-CVS"/>
             <size key="customSize" width="617" height="578"/>
             <connections>
-                <outlet property="labelCenterConstraint" destination="g0f-sA-Zlb" id="mnB-fu-L4h"/>
-                <outlet property="redditImage" destination="V1r-5d-yAc" id="riz-dS-hwE"/>
-                <outlet property="redditTitleLabel" destination="XMg-Er-B7z" id="8W0-R4-Wyv"/>
-                <outlet property="shadowView" destination="NNN-Co-Wwx" id="1jJ-Ry-OJj"/>
-                <outlet property="viewCenterConstraint" destination="0fb-tT-Yjk" id="hCZ-dh-sna"/>
+                <outlet property="labelCenterConstraint" destination="tIW-0r-zBy" id="s5k-Kb-bX1"/>
+                <outlet property="redditImage" destination="V1r-5d-yAc" id="26C-2M-mgE"/>
+                <outlet property="redditTitleLabel" destination="XMg-Er-B7z" id="WBr-dv-zXR"/>
+                <outlet property="shadowView" destination="NNN-Co-Wwx" id="wWY-77-rNx"/>
+                <outlet property="viewCenterConstraint" destination="nsM-m4-ZBp" id="2iI-Fr-7vL"/>
             </connections>
             <point key="canvasLocation" x="512" y="-251.42428785607197"/>
         </collectionViewCell>

@@ -22,6 +22,8 @@ struct RedditData: Decodable {
 
 struct SecondaryData : Decodable {
     let selftext: String
+    let author_fullname: String
+
     let preview: Images?
 }
 

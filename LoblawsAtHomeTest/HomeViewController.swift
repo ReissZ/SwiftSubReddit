@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var reddits: [Model] = []
+    private var reddits: [RedditData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +20,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.layer.cornerRadius = 0.5
-        let nib = UINib(nibName: "RedditsCollectionViewCell", bundle: nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "RedditsCollectionViewCell")
+        let nib = UINib(nibName: "RedditCollectionViewCell", bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "RedditCollectionViewCell")
         
         NetworkingService.shared.getReddits { [weak self] (response) in
             
             
-            self?.reddits = [response]
+            self?.reddits = response.data.children
+            DispatchQueue.main.async {
+            self?.collectionView.reloadData()
+            }
         }
     }
     

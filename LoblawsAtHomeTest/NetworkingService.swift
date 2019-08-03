@@ -16,7 +16,7 @@ class NetworkingService {
     let session = URLSession.shared
 
     func getReddits(success successBlock: @escaping (Model) -> Void) {
-        guard let url = URL(string: "https://www.reddit.com/r/swift/.json") else { return }
+        guard let url = URL(string: "https://www.reddit.com/r/swift/.json?raw_json=1") else { return }
         let request = URLRequest(url: url)
         
         session.dataTask(with: request) { [weak self] data, _, error in

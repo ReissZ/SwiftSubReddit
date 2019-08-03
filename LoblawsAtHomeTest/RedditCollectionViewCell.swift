@@ -19,11 +19,12 @@ class RedditCollectionViewCell: UICollectionViewCell {
     
     public var isAnimated: Bool = false
     
-    func updateCell(with reddit: Model) {
+   // private var source: [ImageURL] = []
+    
+    func updateCell(with reddit: RedditData) {
         print("cell123 \(isAnimated)")
         if isAnimated == false {
-            
-            viewCenterConstraint.constant -= shadowView.layer.bounds.width
+                        viewCenterConstraint.constant -= shadowView.layer.bounds.width
             //labelCenterConstraint.constant -= nameLabel.bounds.width
             
             //        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
@@ -31,16 +32,15 @@ class RedditCollectionViewCell: UICollectionViewCell {
             //            self.shadowView.layoutIfNeeded()
             //        }, completion: nil)
             // idLabel.text = "\(user.id)"
-            
-            
-            //redditTitleLabel.text = reddit.data.children.data.selftext
-           
-            
+            print("author: \(reddit.data.author_fullname)")
+            redditTitleLabel.text = reddit.data.author_fullname
+          
             // redditTitleLabel.text = reddit.selftext
             // userNameLabel.text = user.userName
             //createdDateLabel.text = "\(user.createdDate)"
-            DispatchQueue.main.async {
-           // self.redditImage.loadImage(from: reddit.data.preview)
+            
+            if let imageURL = reddit.data.preview?.images.first?.source.url {
+                redditImage.loadImage(from: imageURL)
             }
             
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {

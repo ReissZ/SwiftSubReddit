@@ -13,7 +13,7 @@
         <!--Swift News-->
         <scene sceneID="rxH-cv-K3Z">
             <objects>
-                <viewController id="tib-yc-AMI" customClass="HomeViewController" customModule="EyesTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tib-yc-AMI" customClass="HomeViewController" customModule="LoblawsAtHomeTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KgW-ji-K5R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="8" minY="36" maxX="8" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCollectionViewCell" id="Xfm-cC-CWx" customClass="UserCollectionViewCell" customModule="EyesTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RedditCollectionViewCell" id="Xfm-cC-CWx" customClass="RedditCollectionViewCell" customModule="LoblawsAtHomeTest" customModuleProvider="target">
                                         <rect key="frame" x="8" y="36" width="174" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -138,7 +138,7 @@
         <!--User Detail View Controller-->
         <scene sceneID="Oj9-Pt-Y7W">
             <objects>
-                <viewController id="vOp-91-V4f" customClass="UserDetailViewController" customModule="EyesTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vOp-91-V4f" customClass="UserDetailViewController" customModule="LoblawsAtHomeTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Als-Dr-wo9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
