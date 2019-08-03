@@ -9,11 +9,19 @@
 import UIKit
 
 class RedditDetailViewController: UIViewController {
+    
+    var redditTitle: String?
+    var redditArticle: RedditData?
+    var redditImage: UIImage?
 
+    @IBOutlet weak var articleTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        articleTextView.text = redditArticle?.data.selftext
+
     }
     
 

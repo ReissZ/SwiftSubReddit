@@ -28,14 +28,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             
             self?.reddits = response.data.children
             DispatchQueue.main.async {
-            self?.collectionView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
     }
-
+    
     //Number of views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return reddits.count
@@ -56,7 +56,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "UserDetailVC", sender: indexPath.row)
+        // performSegue(withIdentifier: "RedditDetailVC", sender: self)
+        //        var controller: UINavigationController
+        //        controller = self.storyboard?.instantiateViewController(withIdentifier: "RedditDetailViewController") as! UINavigationController
+        //        //controller.yourTableViewArray = localArrayValue
+        //        self.present(controller, animated: true, completion: nil)
+        
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "RedditDetailViewController") as! RedditDetailViewController
+        
+        let redditDetailData: RedditData?
+        
+        //controller.redditArticle = redditDetailData?.data.selftext
+        //controller.redditTitle = redditDetailData?.data.author_fullname
+        //self.navigationController?.pushViewController(controller, animated: true)
+        performSegue(withIdentifier: "redditDetailSegue", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,9 +79,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             if redditCell.isAnimated == false {
                 print("collection1 \(redditCell.isAnimated)")
                 redditCell.backgroundColor = UIColor.clear
-
+                
                 redditCell.updateCell(with: reddits[indexPath.row])
-            
+                
                 UIView.animate(withDuration: 0.5, delay: 0.5 * Double(indexPath.row), usingSpringWithDamping: 1, initialSpringVelocity: 0.5 , options: indexPath.row % 2 == 0 ? .transitionFlipFromLeft : .transitionFlipFromRight, animations: {
                     if indexPath.row % 2 == 0 {
                         AnimationUtility.viewSlideInFromLeft(toRight: redditCell)
@@ -84,54 +97,85 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     redditCell.isAnimated = true
                     redditCell.isAnimated = true
                     print("collection \(redditCell.isAnimated)")
-                     //self.animateBounceView()
-                                    let bounds = redditCell.shadowView.bounds
-                                    let bounceView = redditCell.shadowView
-                                    let bounceImageView = redditCell.redditImage
-                                    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
-                                    bounceView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
-                                    }, completion: { (success: Bool) in
-                                        if success {
-                                            bounceView?.bounds = bounds
-                                        }
-                                    })
+                    //self.animateBounceView()
+                    let bounds = redditCell.shadowView.bounds
+                    let bounceView = redditCell.shadowView
+                    let bounceImageView = redditCell.redditImage
+                    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+                        bounceView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+                    }, completion: { (success: Bool) in
+                        if success {
+                            bounceView?.bounds = bounds
+                        }
+                    })
                     
-                                    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
-                                        bounceImageView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
-                                    }, completion: { (success: Bool) in
-                                        if success {
-                                            bounceImageView?.bounds = bounds
-                                        }
-                                    })
+                    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+                        bounceImageView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+                    }, completion: { (success: Bool) in
+                        if success {
+                            bounceImageView?.bounds = bounds
+                        }
+                    })
                 })
                 
             }
             redditCell.isAnimated = true
-                
+            
             return redditCell
         } else {
             return UICollectionViewCell()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        let navViewController = segue.destination as? UINavigationController
+//
+//        let detailViewController = navViewController?.viewControllers.first as! RedditDetailViewController
+//
+//       // tableVC.re = localArrayValue
+        
+//        if segue.identifier == "redditDetailSegue"  {
+//
+//            if let navViewController = segue.destination as? UINavigationController {
+//
+//                if let redditViewController = navViewController.topViewController as? RedditDetailViewController {
+//                    var redditDetailData: RedditData?
+//
+//                    redditViewController.redditArticle = redditDetailData?.data.selftext
+//
+//                }
+//                }
+//            }
+//    }
+        
+        
+        
+        if let destination = segue.destination as?
+            RedditDetailViewController, let index =
+            collectionView.indexPathsForSelectedItems?.first {
+            destination.redditArticle = reddits[index.row]
+            //destination.redditTitle = reddits[index.row]
+        }
+        }
 }
-
-extension UICollectionView {
-
-    func dropShadow() {
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: -1, height: 1)
-        self.layer.shadowRadius = 1
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shouldRasterize = true
-        self.layer.rasterizationScale = UIScreen.main.scale
+    extension UICollectionView {
+        
+        func dropShadow() {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: -1, height: 1)
+            self.layer.shadowRadius = 1
+            self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+            self.layer.shouldRasterize = true
+            self.layer.rasterizationScale = UIScreen.main.scale
+        }
     }
-}
-
-extension UICollectionView {
-    func reloadData(_ completion: @escaping () -> Void) {
-        reloadData()
-        DispatchQueue.main.async { completion() }
-    }
+    
+    extension UICollectionView {
+        func reloadData(_ completion: @escaping () -> Void) {
+            reloadData()
+            DispatchQueue.main.async { completion() }
+        }
 }
