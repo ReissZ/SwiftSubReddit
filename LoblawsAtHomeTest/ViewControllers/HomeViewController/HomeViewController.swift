@@ -25,50 +25,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         NetworkingService.shared.getReddits { [weak self] (response) in
             
-            
             self?.reddits = response.data.children
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-    }
-    
+
     //Number of views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return reddits.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:CGFloat(collectionView.frame.size.width * 0.46), height: collectionView.frame.size.height * 0.25)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
+        
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath)
     {
-        // performSegue(withIdentifier: "RedditDetailVC", sender: self)
-        //        var controller: UINavigationController
-        //        controller = self.storyboard?.instantiateViewController(withIdentifier: "RedditDetailViewController") as! UINavigationController
-        //        //controller.yourTableViewArray = localArrayValue
-        //        self.present(controller, animated: true, completion: nil)
         
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "RedditDetailViewController") as! RedditDetailViewController
         
         let redditDetailData: RedditData?
-        
-        //controller.redditArticle = redditDetailData?.data.selftext
-        //controller.redditTitle = redditDetailData?.data.author_fullname
-        //self.navigationController?.pushViewController(controller, animated: true)
+       
         performSegue(withIdentifier: "redditDetailSegue", sender: self)
     }
     
@@ -100,12 +76,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     //self.animateBounceView()
                     let bounds = redditCell.shadowView.bounds
                     let bounceView = redditCell.shadowView
-                    let bounceImageView = redditCell.redditImage
+                    let bounceImageView = redditCell.redditImageView
                     UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
                         bounceView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
                     }, completion: { (success: Bool) in
                         if success {
-                            bounceView?.bounds = bounds
                         }
                     })
                     
@@ -113,7 +88,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                         bounceImageView?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
                     }, completion: { (success: Bool) in
                         if success {
-                            bounceImageView?.bounds = bounds
                         }
                     })
                 })
@@ -128,34 +102,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        let navViewController = segue.destination as? UINavigationController
-//
-//        let detailViewController = navViewController?.viewControllers.first as! RedditDetailViewController
-//
-//       // tableVC.re = localArrayValue
-        
-//        if segue.identifier == "redditDetailSegue"  {
-//
-//            if let navViewController = segue.destination as? UINavigationController {
-//
-//                if let redditViewController = navViewController.topViewController as? RedditDetailViewController {
-//                    var redditDetailData: RedditData?
-//
-//                    redditViewController.redditArticle = redditDetailData?.data.selftext
-//
-//                }
-//                }
-//            }
-//    }
-        
-        
-        
         if let destination = segue.destination as?
             RedditDetailViewController, let index =
             collectionView.indexPathsForSelectedItems?.first {
             destination.redditArticle = reddits[index.row]
-            //destination.redditTitle = reddits[index.row]
+            destination.redditTitle = reddits[index.row]
+            destination.redditImage = reddits[index.row]
         }
         }
 }

@@ -111,19 +111,15 @@
 		0C6CE35622F3588100D7B1BE /* LoblawsAtHomeTest */ = {
 			isa = PBXGroup;
 			children = (
-				0C6CE35722F3588100D7B1BE /* AppDelegate.swift */,
-				0C6CE38822F3CBA900D7B1BE /* NetworkingService.swift */,
-				0C6CE35922F3588100D7B1BE /* HomeViewController.swift */,
-				0C50C55B22F3F27D005275B8 /* RedditCollectionViewCell.swift */,
-				0C50C55F22F5311C005275B8 /* RedditDetailViewController.swift */,
-				0C6CE38C22F3CD4B00D7B1BE /* Reddit.swift */,
-				0C6CE38E22F3CDE900D7B1BE /* AnimationUtility.swift */,
-				0C6CE35B22F3588100D7B1BE /* Main.storyboard */,
-				0C50C55C22F3F27D005275B8 /* RedditCollectionViewCell.xib */,
-				0C6CE36122F3588200D7B1BE /* Assets.xcassets */,
-				0C6CE36322F3588200D7B1BE /* LaunchScreen.storyboard */,
 				0C6CE36622F3588200D7B1BE /* Info.plist */,
-				0C6CE35E22F3588100D7B1BE /* LoblawsAtHomeTest.xcdatamodeld */,
+				0C9B4E9122F5C0DB00B25F33 /* Storyboards */,
+				0C9B4E8A22F5BFFC00B25F33 /* NetworkingService */,
+				0C9B4E8B22F5C01200B25F33 /* ViewControllers */,
+				0C9B4E8E22F5C06C00B25F33 /* CollectionViewCells */,
+				0C9B4E8F22F5C08600B25F33 /* Model */,
+				0C9B4E9022F5C09E00B25F33 /* Utilities */,
+				0C6CE36122F3588200D7B1BE /* Assets.xcassets */,
+				0C9B4E9322F5C15600B25F33 /* Configuration */,
 			);
 			path = LoblawsAtHomeTest;
 			sourceTree = "<group>";
@@ -144,6 +140,82 @@
 				0C6CE37C22F3588200D7B1BE /* Info.plist */,
 			);
 			path = LoblawsAtHomeTestUITests;
+			sourceTree = "<group>";
+		};
+		0C9B4E8A22F5BFFC00B25F33 /* NetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CE38822F3CBA900D7B1BE /* NetworkingService.swift */,
+			);
+			path = NetworkingService;
+			sourceTree = "<group>";
+		};
+		0C9B4E8B22F5C01200B25F33 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C9B4E8D22F5C04700B25F33 /* HomeViewController */,
+				0C9B4E8C22F5C01F00B25F33 /* RedditDetailViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0C9B4E8C22F5C01F00B25F33 /* RedditDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0C50C55F22F5311C005275B8 /* RedditDetailViewController.swift */,
+			);
+			path = RedditDetailViewController;
+			sourceTree = "<group>";
+		};
+		0C9B4E8D22F5C04700B25F33 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CE35922F3588100D7B1BE /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		0C9B4E8E22F5C06C00B25F33 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				0C50C55B22F3F27D005275B8 /* RedditCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		0C9B4E8F22F5C08600B25F33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CE38C22F3CD4B00D7B1BE /* Reddit.swift */,
+				0C6CE35E22F3588100D7B1BE /* LoblawsAtHomeTest.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0C9B4E9022F5C09E00B25F33 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CE38E22F3CDE900D7B1BE /* AnimationUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0C9B4E9122F5C0DB00B25F33 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0C50C55C22F3F27D005275B8 /* RedditCollectionViewCell.xib */,
+				0C6CE36322F3588200D7B1BE /* LaunchScreen.storyboard */,
+				0C6CE35B22F3588100D7B1BE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0C9B4E9322F5C15600B25F33 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				0C6CE35722F3588100D7B1BE /* AppDelegate.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
