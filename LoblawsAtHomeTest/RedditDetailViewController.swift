@@ -17,12 +17,17 @@ class RedditDetailViewController: UIViewController {
     @IBOutlet weak var articleTextView: UITextView!
     @IBOutlet weak var redditImageView: UIImageView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        redditImageView.layer.cornerRadius = 8.0
+        redditImageView.clipsToBounds = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         articleTextView.text = redditArticle?.data.selftext
-        
+
         self.navigationController?.navigationBar.topItem?.title = redditTitle?.data.title
         
         let redditImageURLFromData = redditImage?.data.preview?.images.first?.source.url
